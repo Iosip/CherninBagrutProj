@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:title="Exit"
+        android:orderInCategory="200"
+        android:id="@+id/mnuExit"
+
+        app:showAsAction="never"
+        />
+    <item
+        android:title="Read Aloud"
+        android:orderInCategory="100"
+        android:id="@+id/mnuRead"
+        app:showAsAction="never"
+        />
+    <item
+        android:title="Start Background Music"
+        android:orderInCategory="150"
+        android:id="@+id/mnuStartMus"
+        app:showAsAction="never"
+        />
+    <item
+        android:title="Stop Background Music"
+        android:orderInCategory="150"
+        android:id="@+id/mnuStopMus"
+        app:showAsAction="never"
+        />
+    <item
+        android:title="Stop Reading"
+        android:orderInCategory="100"
+        android:id="@+id/mnuStop"
+        app:showAsAction="never"
+        />
+
+</menu>

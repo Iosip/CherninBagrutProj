@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">CherninBagrutProj</string>
+    <string name="about_str">Lingvo90 was created to help you study new words in foreign languages by the 90 seconds system which was developed by russian specialist Anton Brejestovski.\n\nThis is the process of learning a word:
+\n1. Having met a new word, you create a sentence and you write all the sentence where you found the new word in the “sentence” line and the word itself in the “word”. Very Important that the letters in the word have to be exactly like in the sentence.
+\n2. Within 7 days, the application will send you Notification to practice. Your task is to read the sentence in the “today” page 1-2 times. At the same time, you need to understand what the word means.
+\n3. After 7 days, there is a week break, after which the application sends you this notification again for you to read it again.
+\n4. And finally, after another two weeks of rest, you have to read it for the last time.
+\n\nIf you take into account that you spent 10 seconds per reading, then you will spend a total of 10 * 7 + 10 + 10 = 90 seconds learning a new word.
+
+\n\nIn “today” page there are all the sentences which you have to read today. When you read a sentence, put a vi in the checkbox so that the program understands that you read the sentence. If you want to see the translation (if you made it) click on the translate button.
+\nIn “all groups” page you can create a group. Then Click on the group. Now you are in the group. Here you can see all the sentences including old sentences that you have finished, and here you can create new sentences.
+The translation line is optional.
+
+\n\nCreated by Daniel Chernin 2022.\n
+</string>
 </resources>
