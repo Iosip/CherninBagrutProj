@@ -35,9 +35,6 @@
             android:name=".SentenceGroupsListActivity"
             android:exported="true"></activity>
 
-
-
-        <service android:name=".PlayMusicService"/>
     </application>
 
 </manifest>

@@ -1,0 +1,188 @@
+@startuml
+class com.example.cherninbagrutproj.CreateSentenceGroupActivity {
+~ EditText etGroupName
+~ Button btnOk
+~ int position
+# void onCreate(Bundle)
++ void onClick(View)
+}
+class com.example.cherninbagrutproj.SentenceAdapter {
+~ Context context
+~ List<Sentence> objects
++ View getView(int,View,ViewGroup)
+}
+class com.example.cherninbagrutproj.Sentence {
+# String beforeWord
+# String word
+# String afterWord
+# String translate
+# ArrayList<Integer> nextDays
+# Date date
+# int complete
++ void changeDay()
++ void returnDays()
++ void setBeforeWord(String)
++ void setWord(String)
++ void setAfterWord(String)
++ void setNextDays(ArrayList<Integer>)
++ void setDate(Date)
++ void setComplete(int)
++ void setTranslate(String)
++ String getTranslate()
++ String getBeforeWord()
++ String getWord()
++ String getAfterWord()
++ void setAll(String,String,String)
++ ArrayList<Integer> getNextDays()
++ Date getDate()
++ int getComplete()
++ String toString()
+}
+class com.example.cherninbagrutproj.SentenceGroupsListActivity {
+~ ListView lv
+~ ArrayList<SentenceGroup> arrBig
+~ SntgAdapter sntgAdapter
+~ SentenceManager sentenceManager
+~ Button btnPLusSenGroup
++ {static} int UPDATE_CODE
++ {static} int ADD_CODE
+~ TextView todayTv
+# void onCreate(Bundle)
++ void onClick(View)
+# void onActivityResult(int,int,Intent)
+}
+class com.example.cherninbagrutproj.SentenceGroup {
+- String name
+- ArrayList<Sentence> sentences
++ String toString()
++ ArrayList<Sentence> getList()
++ void setList(ArrayList<Sentence>)
++ String getName()
++ ArrayList<Sentence> getFinished()
++ void setName(String)
++ ArrayList<Sentence> getNotToday()
++ ArrayList<Sentence> getToday()
++ ArrayList<Integer> getTodayIndexes()
+}
+class com.example.cherninbagrutproj.SentenceManager {
++ String FILE_NAME
++ Context context
++ void saveSentence(ArrayList<SentenceGroup>)
++ boolean saveToFile(String,String)
++ String readFromFile(String)
++ ArrayList<SentenceGroup> loadSentence()
++ {static} Integer findSntgIndexByName(ArrayList<SentenceGroup>,String)
++ {static} Sentence findSentence(ArrayList<SentenceGroup>,Coordinates)
+}
+class com.example.cherninbagrutproj.PlayMusicService {
+- MediaPlayer player
++ void onCreate()
++ int onStartCommand(Intent,int,int)
++ IBinder onBind(Intent)
++ void onDestroy()
+}
+class com.example.cherninbagrutproj.Coordinates {
+~ int groupIndex
+~ int sentenceIndex
++ int getGroupIndex()
++ int getSentenceIndex()
+}
+class com.example.cherninbagrutproj.AboutActivity {
+- TextToSpeech mTTS
+~ Animation fadeIn
+~ TextView tvAbout
+# void onCreate(Bundle)
++ boolean onCreateOptionsMenu(Menu)
++ boolean onOptionsItemSelected(MenuItem)
+- void speak()
+# void onPause()
+}
+class com.example.cherninbagrutproj.CreateSentenceActivity {
+~ EditText etSentence
+~ Button btnOk
+~ int position
+# void onCreate(Bundle)
++ void onClick(View)
+}
+class com.example.cherninbagrutproj.BroadcastBattery {
++ void onReceive(Context,Intent)
+}
+class com.example.cherninbagrutproj.SentenceActivity {
+~ ListView lv
+~ Button btnPLusSen
+~ ArrayList<SentenceGroup> arrBig
+~ int posOfTheGroup
+~ SentenceManager sentenceManager
+~ SentenceGroup mainSentenceGroup
++ {static} int UPDATE_CODE
++ {static} int ADD_CODE
++ {static} int DELETE_CODE
+~ ArrayList<Sentence> sentenceList
+~ SentenceAdapter sentenceAdapter
+~ Sentence lastChosen
+~ TextView todayTv
+# void onCreate(Bundle)
++ void onClick(View)
+# void onActivityResult(int,int,Intent)
+}
+class com.example.cherninbagrutproj.TodayAdapter {
+~ Context context
+~ List<Sentence> objects
+~ List<Coordinates> coordinates
++ View getView(int,View,ViewGroup)
++ void onClick(View)
+}
+class com.example.cherninbagrutproj.SntgAdapter {
+~ Context context
+~ List<SentenceGroup> objects
++ View getView(int,View,ViewGroup)
+}
+class com.example.cherninbagrutproj.Date {
++ int year
++ int month
++ int day
++ int getYear()
++ int getMonth()
++ int getDay()
++ void setYear(int)
++ void setMonth(int)
++ void setDay(int)
++ int compareTo(Date)
++ String toString()
++ Date getTomorrow()
++ Date getTomorrow2()
++ Date getYesterday()
+}
+class com.example.cherninbagrutproj.SentenceTodayActivity {
+~ ListView lv
+~ TodayAdapter todayAdapter
+~ SentenceManager sentenceManager
+~ ArrayList<Sentence> sentences
+~ TextView todayTv
+~ ArrayList<Coordinates> coordinates
+~ BroadcastBattery broadcastBattery
+# void onCreate(Bundle)
++ void onClick(View)
+# void onResume()
+# void onStop()
+}
+
+
+com.example.cherninbagrutproj.OnClickListener <|.. com.example.cherninbagrutproj.CreateSentenceGroupActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.cherninbagrutproj.CreateSentenceGroupActivity
+android.widget.ArrayAdapter <|-- com.example.cherninbagrutproj.SentenceAdapter
+com.example.cherninbagrutproj.OnClickListener <|.. com.example.cherninbagrutproj.SentenceGroupsListActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.cherninbagrutproj.SentenceGroupsListActivity
+android.app.Service <|-- com.example.cherninbagrutproj.PlayMusicService
+androidx.appcompat.app.AppCompatActivity <|-- com.example.cherninbagrutproj.AboutActivity
+com.example.cherninbagrutproj.OnClickListener <|.. com.example.cherninbagrutproj.CreateSentenceActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.cherninbagrutproj.CreateSentenceActivity
+android.content.BroadcastReceiver <|-- com.example.cherninbagrutproj.BroadcastBattery
+com.example.cherninbagrutproj.OnClickListener <|.. com.example.cherninbagrutproj.SentenceActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.cherninbagrutproj.SentenceActivity
+com.example.cherninbagrutproj.OnClickListener <|.. com.example.cherninbagrutproj.TodayAdapter
+android.widget.ArrayAdapter <|-- com.example.cherninbagrutproj.TodayAdapter
+android.widget.ArrayAdapter <|-- com.example.cherninbagrutproj.SntgAdapter
+com.example.cherninbagrutproj.OnClickListener <|.. com.example.cherninbagrutproj.SentenceTodayActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.cherninbagrutproj.SentenceTodayActivity
+@enduml

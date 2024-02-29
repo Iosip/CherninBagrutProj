@@ -1,0 +1,44 @@
+@startuml
+class com.example.cherninbagrutproj.SentenceGroupsListActivity {
+~ ListView lv
+~ ArrayList<SentenceGroup> arrBig
+~ SntgAdapter sntgAdapter
+~ SentenceManager sentenceManager
+~ Button btnPLusSenGroup
++ {static} int UPDATE_CODE
++ {static} int ADD_CODE
+~ TextView todayTv
+# void onCreate(Bundle)
++ void onClick(View)
+# void onActivityResult(int,int,Intent)
+}
+class com.example.cherninbagrutproj.SentenceTodayActivity {
+~ ListView lv
+~ TodayAdapter todayAdapter
+~ SentenceManager sentenceManager
+~ ArrayList<Sentence> sentences
+~ TextView todayTv
+~ ArrayList<Coordinates> coordinates
+~ BroadcastBattery broadcastBattery
+# void onCreate(Bundle)
++ void onClick(View)
+# void onResume()
+# void onStop()
+}
+class com.example.cherninbagrutproj.SentenceManager {
++ String FILE_NAME
++ Context context
++ void saveSentence(ArrayList<SentenceGroup>)
++ boolean saveToFile(String,String)
++ String readFromFile(String)
++ ArrayList<SentenceGroup> loadSentence()
++ {static} Integer findSntgIndexByName(ArrayList<SentenceGroup>,String)
++ {static} Sentence findSentence(ArrayList<SentenceGroup>,Coordinates)
+}
+
+
+com.example.cherninbagrutproj.OnClickListener <|.. com.example.cherninbagrutproj.SentenceGroupsListActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.cherninbagrutproj.SentenceGroupsListActivity
+com.example.cherninbagrutproj.OnClickListener <|.. com.example.cherninbagrutproj.SentenceTodayActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.cherninbagrutproj.SentenceTodayActivity
+@enduml

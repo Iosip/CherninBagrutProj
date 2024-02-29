@@ -1,0 +1,23 @@
+@startuml
+class com.example.cherninbagrutproj.PlayMusicService {
+- MediaPlayer player
++ void onCreate()
++ int onStartCommand(Intent,int,int)
++ IBinder onBind(Intent)
++ void onDestroy()
+}
+class com.example.cherninbagrutproj.AboutActivity {
+- TextToSpeech mTTS
+~ Animation fadeIn
+~ TextView tvAbout
+# void onCreate(Bundle)
++ boolean onCreateOptionsMenu(Menu)
++ boolean onOptionsItemSelected(MenuItem)
+- void speak()
+# void onPause()
+}
+
+
+android.app.Service <|-- com.example.cherninbagrutproj.PlayMusicService
+androidx.appcompat.app.AppCompatActivity <|-- com.example.cherninbagrutproj.AboutActivity
+@enduml

@@ -1,0 +1,28 @@
+@startuml
+class com.example.cherninbagrutproj.TodayAdapter {
+~ Context context
+~ List<Sentence> objects
+~ List<Coordinates> coordinates
++ View getView(int,View,ViewGroup)
++ void onClick(View)
+}
+class com.example.cherninbagrutproj.SentenceTodayActivity {
+~ ListView lv
+~ TodayAdapter todayAdapter
+~ SentenceManager sentenceManager
+~ ArrayList<Sentence> sentences
+~ TextView todayTv
+~ ArrayList<Coordinates> coordinates
+~ BroadcastBattery broadcastBattery
+# void onCreate(Bundle)
++ void onClick(View)
+# void onResume()
+# void onStop()
+}
+
+
+com.example.cherninbagrutproj.OnClickListener <|.. com.example.cherninbagrutproj.TodayAdapter
+android.widget.ArrayAdapter <|-- com.example.cherninbagrutproj.TodayAdapter
+com.example.cherninbagrutproj.OnClickListener <|.. com.example.cherninbagrutproj.SentenceTodayActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.cherninbagrutproj.SentenceTodayActivity
+@enduml

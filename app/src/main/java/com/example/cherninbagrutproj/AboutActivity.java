@@ -51,12 +51,6 @@ public class AboutActivity extends AppCompatActivity {
             case R.id.mnuStop:
                 onPause();
                 return true;
-            case R.id.mnuStartMus:
-                startService(new Intent(this, PlayMusicService.class));
-                return true;
-            case R.id.mnuStopMus:
-                stopService( new Intent(this, PlayMusicService.class));
-                return true;
         }
         return true;
     }

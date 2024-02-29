@@ -1,0 +1,58 @@
+@startuml
+class com.example.cherninbagrutproj.Date {
++ int year
++ int month
++ int day
++ int getYear()
++ int getMonth()
++ int getDay()
++ void setYear(int)
++ void setMonth(int)
++ void setDay(int)
++ int compareTo(Date)
++ String toString()
++ Date getTomorrow()
++ Date getTomorrow2()
++ Date getYesterday()
+}
+class com.example.cherninbagrutproj.Sentence {
+# String beforeWord
+# String word
+# String afterWord
+# String translate
+# ArrayList<Integer> nextDays
+# Date date
+# int complete
++ void changeDay()
++ void returnDays()
++ void setBeforeWord(String)
++ void setWord(String)
++ void setAfterWord(String)
++ void setNextDays(ArrayList<Integer>)
++ void setDate(Date)
++ void setComplete(int)
++ void setTranslate(String)
++ String getTranslate()
++ String getBeforeWord()
++ String getWord()
++ String getAfterWord()
++ void setAll(String,String,String)
++ ArrayList<Integer> getNextDays()
++ Date getDate()
++ int getComplete()
++ String toString()
+}
+class com.example.cherninbagrutproj.SentenceGroup {
+- String name
+- ArrayList<Sentence> sentences
++ String toString()
++ ArrayList<Sentence> getList()
++ void setList(ArrayList<Sentence>)
++ String getName()
++ ArrayList<Sentence> getFinished()
++ void setName(String)
++ ArrayList<Sentence> getNotToday()
++ ArrayList<Sentence> getToday()
++ ArrayList<Integer> getTodayIndexes()
+}
+@enduml

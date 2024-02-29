@@ -1,0 +1,37 @@
+@startuml
+class com.example.cherninbagrutproj.SentenceAdapter {
+~ Context context
+~ List<Sentence> objects
++ View getView(int,View,ViewGroup)
+}
+class com.example.cherninbagrutproj.CreateSentenceActivity {
+~ EditText etSentence
+~ Button btnOk
+~ int position
+# void onCreate(Bundle)
++ void onClick(View)
+}
+class com.example.cherninbagrutproj.SentenceActivity {
+~ ListView lv
+~ Button btnPLusSen
+~ ArrayList<SentenceGroup> arrBig
+~ int posOfTheGroup
+~ SentenceManager sentenceManager
++ {static} int UPDATE_CODE
++ {static} int ADD_CODE
++ {static} int DELETE_CODE
+~ ArrayList<Sentence> sentenceList
+~ SentenceAdapter sentenceAdapter
+~ TextView todayTv
+# void onCreate(Bundle)
++ void onClick(View)
+# void onActivityResult(int,int,Intent)
+}
+
+
+android.widget.ArrayAdapter <|-- com.example.cherninbagrutproj.SentenceAdapter
+com.example.cherninbagrutproj.OnClickListener <|.. com.example.cherninbagrutproj.CreateSentenceActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.cherninbagrutproj.CreateSentenceActivity
+com.example.cherninbagrutproj.OnClickListener <|.. com.example.cherninbagrutproj.SentenceActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.cherninbagrutproj.SentenceActivity
+@enduml

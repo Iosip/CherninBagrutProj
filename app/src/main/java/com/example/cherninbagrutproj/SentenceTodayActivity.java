@@ -20,7 +20,6 @@ public class SentenceTodayActivity extends AppCompatActivity implements View.OnC
     TextView todayTv, allGroupsTv;
     ArrayList<Coordinates> coordinates;
 
-    BroadcastBattery broadcastBattery;          //battery
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +58,6 @@ public class SentenceTodayActivity extends AppCompatActivity implements View.OnC
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-
-        broadcastBattery = new BroadcastBattery();
     }
 
     @Override
@@ -73,16 +70,6 @@ public class SentenceTodayActivity extends AppCompatActivity implements View.OnC
             Intent intent = new Intent(SentenceTodayActivity.this, SentenceGroupsListActivity.class);
             startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
         }
-    }
-
-    protected void onResume() {
-        super.onResume();
-        registerReceiver(broadcastBattery, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-    }
-
-    protected void onStop() {
-        super.onStop();
-        unregisterReceiver(broadcastBattery);
     }
 
 

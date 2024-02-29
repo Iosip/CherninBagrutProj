@@ -1,0 +1,12 @@
+@startuml
+class com.example.cherninbagrutproj.SentenceManager {
++ String FILE_NAME
++ Context context
++ void saveSentence(ArrayList<SentenceGroup>)
++ boolean saveToFile(String,String)
++ String readFromFile(String)
++ ArrayList<SentenceGroup> loadSentence()
++ {static} Integer findSntgIndexByName(ArrayList<SentenceGroup>,String)
++ {static} Sentence findSentence(ArrayList<SentenceGroup>,Coordinates)
+}
+@enduml

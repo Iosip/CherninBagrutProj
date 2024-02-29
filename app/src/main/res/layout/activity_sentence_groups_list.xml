@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".SentenceActivity">
+    tools:context=".SentenceGroupsListActivity">
 
     <TextView
         android:id="@+id/textView5"
@@ -54,7 +54,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <Button
-        android:id="@+id/btnPlusSen"
+        android:id="@+id/btnPlusSenGroup"
         android:layout_width="44dp"
         android:layout_height="44dp"
         android:layout_marginEnd="10dp"
@@ -64,6 +64,19 @@
         android:text="+"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnAbout"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/round_button"
+        android:gravity="center"
+        android:text="?"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnPlusSenGroup"
         app:layout_constraintEnd_toEndOf="parent" />
 
 
