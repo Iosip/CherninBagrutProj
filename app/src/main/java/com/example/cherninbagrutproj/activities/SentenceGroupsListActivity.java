@@ -1,10 +1,9 @@
-package com.example.cherninbagrutproj;
+package com.example.cherninbagrutproj.activities;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,12 +11,12 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import com.example.cherninbagrutproj.R;
+import com.example.cherninbagrutproj.SentenceGroup;
+import com.example.cherninbagrutproj.SentenceManager;
+import com.example.cherninbagrutproj.SntgAdapter;
+
 import java.util.ArrayList;
 
 public class SentenceGroupsListActivity extends AppCompatActivity implements View.OnClickListener {
@@ -65,7 +64,7 @@ Button btnPLusSenGroup, btnAbout;
 
         //sntgList.add(sg1);sntgList.add(sg2);
         sentenceManager = new SentenceManager(this);
-        arrBig.addAll(sentenceManager.loadSentence());
+        arrBig.addAll(sentenceManager.loadSentence(getApplicationContext()));
 
 
         ActionBar actionBar = getSupportActionBar();
@@ -107,7 +106,7 @@ Button btnPLusSenGroup, btnAbout;
             }
 
             sntgAdapter.notifyDataSetChanged();        //sinchronisatipn
-            sentenceManager.saveSentence(arrBig);
+            sentenceManager.saveSentence(arrBig, getApplicationContext());
 
 
         }

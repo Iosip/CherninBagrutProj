@@ -36,7 +36,6 @@ we take each line, spliting it with ## and converting it to a sentence with spec
             String [] str = arr[i].split("##");
             Sentence s = new Sentence(str);
             this.sentences.add(s);
-            int a = 2;
         }
     }
 
@@ -55,7 +54,7 @@ we take each line, spliting it with ## and converting it to a sentence with spec
     {
         return sentences;
     }
-    public void setList(ArrayList<Sentence> newSentences){
+    public void setList(ArrayList<Sentence> newSentences) {
         this.sentences = newSentences;
     }
 

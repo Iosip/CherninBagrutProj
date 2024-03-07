@@ -1,4 +1,4 @@
-package com.example.cherninbagrutproj;
+package com.example.cherninbagrutproj.activities;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
@@ -7,14 +7,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.cherninbagrutproj.R;
+import com.example.cherninbagrutproj.Sentence;
+import com.example.cherninbagrutproj.SentenceAdapter;
+import com.example.cherninbagrutproj.SentenceGroup;
+import com.example.cherninbagrutproj.SentenceManager;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class SentenceActivity extends AppCompatActivity implements View.OnClickListener {
 ListView lv;
@@ -41,7 +44,7 @@ Button btnPLusSen;
 
         arrBig = new ArrayList<>();
         sentenceManager = new SentenceManager(this);
-        arrBig.addAll(sentenceManager.loadSentence());
+        arrBig.addAll(sentenceManager.loadSentence(getApplicationContext()));
         sentenceList = new ArrayList<>();
 
         sentenceAdapter =new SentenceAdapter(this,0,0,sentenceList);
@@ -100,14 +103,16 @@ Button btnPLusSen;
                     arrBig.get(posOfTheGroup).setList(sentenceList);
                 }
             } else if (requestCode == ADD_CODE) {
-                String sentence = data.getStringExtra("key_sentence"), word = data.getStringExtra("key_word"), translate = data.getStringExtra("key_translate");
+                String sentence = data.getStringExtra("key_sentence"),
+                        word = data.getStringExtra("key_word"),
+                        translate = data.getStringExtra("key_translate");
                 sentenceList.add(0, new Sentence(sentence,word,translate));
                 arrBig.get(posOfTheGroup).setList(sentenceList);
 
             }
         }
             sentenceAdapter.notifyDataSetChanged();        //sinchronisatipn
-            sentenceManager.saveSentence(arrBig);
+            sentenceManager.saveSentence(arrBig, getApplicationContext());
         }
 
 

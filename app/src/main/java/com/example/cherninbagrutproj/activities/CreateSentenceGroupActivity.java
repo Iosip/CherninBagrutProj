@@ -1,4 +1,4 @@
-package com.example.cherninbagrutproj;
+package com.example.cherninbagrutproj.activities;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.cherninbagrutproj.R;
 
 public class CreateSentenceGroupActivity extends AppCompatActivity implements View.OnClickListener {
 EditText etGroupName;

@@ -50,7 +50,7 @@ public class TodayAdapter extends ArrayAdapter<Sentence> implements View.OnClick
             public void onClick(View view) {
                 SentenceManager sentenceManager = new SentenceManager(context);
                 ArrayList<SentenceGroup> arrBig = new ArrayList<>();
-                arrBig.addAll(sentenceManager.loadSentence());
+                arrBig.addAll(sentenceManager.loadSentence(context));
                 Sentence sentence = SentenceManager.findSentence(arrBig,coordinates.get(position));
                 if (cbDone.isChecked()){
                     sentence.changeDay();
@@ -58,7 +58,7 @@ public class TodayAdapter extends ArrayAdapter<Sentence> implements View.OnClick
                 else{
                     sentence.returnDays();  //if the user clicked mistakley cbDone this line returns the days as they was
                     }
-                sentenceManager.saveSentence(arrBig);
+                sentenceManager.saveSentence(arrBig, context);
             }
 
         });

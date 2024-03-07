@@ -22,12 +22,14 @@ public class Sentence
         this.beforeWord = arr[0];
         this.afterWord = "";
         this.translate = translate;
+        //todo: this for is unnessary because of split(word,2)
         for(int i = 1; i < arr.length; i++)
         {
             this.afterWord += arr[i];
         }
         this.nextDays = new ArrayList<>(Arrays.asList(1, 1, 1, 1, 1, 1, 7, 14));
         this.date = new Date();
+        //todo make finals
         this.complete = 2;
     }
     //convert array to sentence

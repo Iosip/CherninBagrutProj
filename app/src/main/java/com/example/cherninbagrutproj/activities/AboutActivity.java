@@ -1,4 +1,4 @@
-package com.example.cherninbagrutproj;
+package com.example.cherninbagrutproj.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +12,8 @@ import android.view.MenuItem;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
+
+import com.example.cherninbagrutproj.R;
 
 import java.util.Locale;
 

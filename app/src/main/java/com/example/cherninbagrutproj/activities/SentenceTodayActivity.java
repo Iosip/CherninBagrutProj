@@ -1,14 +1,20 @@
-package com.example.cherninbagrutproj;
+package com.example.cherninbagrutproj.activities;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.cherninbagrutproj.Coordinates;
+import com.example.cherninbagrutproj.R;
+import com.example.cherninbagrutproj.Sentence;
+import com.example.cherninbagrutproj.SentenceGroup;
+import com.example.cherninbagrutproj.SentenceManager;
+import com.example.cherninbagrutproj.TodayAdapter;
 
 import java.util.ArrayList;
 
@@ -34,7 +40,7 @@ public class SentenceTodayActivity extends AppCompatActivity implements View.OnC
         coordinates = new ArrayList<>();
         ArrayList<SentenceGroup> arrBig = new ArrayList<>();
         sentenceManager = new SentenceManager(this);
-        arrBig.addAll(sentenceManager.loadSentence());
+        arrBig.addAll(sentenceManager.loadSentence(getApplicationContext()));
         sentences = new ArrayList<>();
 
        // arrBig.get(0).getList().get(0).setComplete(1);

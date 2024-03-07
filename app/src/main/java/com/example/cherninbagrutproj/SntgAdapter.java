@@ -3,13 +3,14 @@ package com.example.cherninbagrutproj;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.cherninbagrutproj.activities.CreateSentenceGroupActivity;
 
 import java.util.List;
 

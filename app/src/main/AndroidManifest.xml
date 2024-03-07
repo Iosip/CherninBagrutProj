@@ -9,13 +9,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CherninBagrutProj">
         <activity
-            android:name=".AboutActivity"
+            android:name=".activities.AboutActivity"
             android:exported="true" />
         <activity
-            android:name=".CreateSentenceGroupActivity"
+            android:name=".activities.CreateSentenceGroupActivity"
             android:exported="true" />
         <activity
-            android:name=".SentenceTodayActivity"
+            android:name=".activities.SentenceTodayActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,15 +24,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CreateSentenceActivity"
+            android:name=".activities.CreateSentenceActivity"
             android:exported="true" />
         <activity
-            android:name=".SentenceActivity"
+            android:name=".activities.SentenceActivity"
             android:exported="true" /> <!-- <meta-data -->
         <!-- android:name="com.google.android.actions" -->
         <!-- android:resource="@xml/actions" /> -->
         <activity
-            android:name=".SentenceGroupsListActivity"
+            android:name=".activities.SentenceGroupsListActivity"
             android:exported="true"></activity>
 
     </application>
