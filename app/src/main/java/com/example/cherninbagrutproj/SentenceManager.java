@@ -150,7 +150,6 @@ public class SentenceManager {                              //saving and uploadi
             String[] arrBigBeta = str.split("&&");
             for (int i = 0; i < arrBigBeta.length - 1; i++){          //the length must be arrBigBeta.length-1 because the last part of arrBigBeta which is after the last && is empty
                 arrBig.add(new SentenceGroup(arrBigBeta[i]));
-                int a = 2;
             }
         }
         return arrBig;
