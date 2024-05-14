@@ -36,7 +36,7 @@ public class SentenceAdapter extends ArrayAdapter<Sentence> {
 
 
         LayoutInflater layoutInflater = ((Activity)context).getLayoutInflater();
-        View view = layoutInflater.inflate(R.layout.sntg_layout,parent,false);
+        View view = layoutInflater.inflate(R.layout.new_sntg_layout,parent,false);
 
         TextView sentenceTv =  (TextView)view.findViewById(R.id.nameTv);
         Sentence temp = objects.get(position);

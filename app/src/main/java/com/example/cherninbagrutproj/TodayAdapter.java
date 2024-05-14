@@ -1,16 +1,22 @@
 package com.example.cherninbagrutproj;
 
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.StyleSpan;
+import android.text.style.TypefaceSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
@@ -19,6 +25,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -28,6 +35,8 @@ public class TodayAdapter extends ArrayAdapter<Sentence> implements View.OnClick
     Context context;
     List<Sentence> objects;
     List<Coordinates> coordinates;
+
+    private float mScaleVal = 1.0f, mFloorScale = 1.0f;
 
     //for the intent
     //Sentence lastChosen;
@@ -42,12 +51,13 @@ public class TodayAdapter extends ArrayAdapter<Sentence> implements View.OnClick
     public View getView(int position, View convertView, ViewGroup parent) {
 
         LayoutInflater layoutInflater = ((Activity)context).getLayoutInflater();
-        View view = layoutInflater.inflate(R.layout.todays_layout,parent,false);
+        View view = layoutInflater.inflate(R.layout.new_todays_layout,parent,false);
 
         CheckBox cbDone = (CheckBox)view.findViewById(R.id.cbDone);
         cbDone.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+                cbDone.startAnimation(AnimationUtils.loadAnimation(context,R.anim.shrink_checkbox));
                 SentenceManager sentenceManager = new SentenceManager(context);
                 ArrayList<SentenceGroup> arrBig = new ArrayList<>();
                 arrBig.addAll(sentenceManager.loadSentence(context));
@@ -68,8 +78,12 @@ public class TodayAdapter extends ArrayAdapter<Sentence> implements View.OnClick
         String text = temp.beforeWord + temp.word + temp.afterWord;
         SpannableString ss = new SpannableString(text);
         StyleSpan boldSpan = new StyleSpan(Typeface.BOLD);
-        ss.setSpan(boldSpan, temp.beforeWord.length(),
-                temp.beforeWord.length()+temp.word.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        //ss.setSpan(boldSpan, temp.beforeWord.length(),
+        //        temp.beforeWord.length()+temp.word.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        Typeface myTypeface = Typeface.create(ResourcesCompat.getFont(context, R.font.open_sans_bold),
+                Typeface.NORMAL);
+        ss.setSpan(new TypefaceSpan(myTypeface), temp.beforeWord.length(), temp.beforeWord.length()+temp.word.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         sentenceTv.setText(ss);
 

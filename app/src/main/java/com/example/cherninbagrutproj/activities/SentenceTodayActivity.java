@@ -77,27 +77,6 @@ public class SentenceTodayActivity extends AppCompatActivity implements View.OnC
         reminderManager.createDailyNotificationChannel();
         reminderManager.createLaterNotificationChannel();
         reminderManager.setPermanentReminder();
-//        createNotificationChannel();
-//        Intent intent = new Intent(SentenceTodayActivity.this, ReminderBroadcast.class);
-//        PendingIntent pendingIntent = PendingIntent.getBroadcast(SentenceTodayActivity.this,
-//                0 , intent, PendingIntent.FLAG_IMMUTABLE);
-//
-//        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-//        Calendar calendar = Calendar.getInstance();
-//        calendar.set(Calendar.HOUR_OF_DAY, calendar.get(Calendar.HOUR_OF_DAY));
-//        calendar.set(Calendar.MINUTE, calendar.get(Calendar.MINUTE) + 1);
-//        calendar.set(Calendar.SECOND, 0);
-//
-//         //alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
-//        Toast.makeText(this, calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE)
-//                 + " - " + ((calendar.getTimeInMillis() - System.currentTimeMillis() ) / 1000), Toast.LENGTH_LONG).show();
-//
-//        //long time = calendar.getTimeInMillis();
-//      //  alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-//      //          AlarmManager.INTERVAL_DAY, pendingIntent);
-//
-//        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-//                AlarmManager.INTERVAL_DAY, pendingIntent);
 
         todayAdapter =new TodayAdapter(this,0,0,sentences,coordinates);
 

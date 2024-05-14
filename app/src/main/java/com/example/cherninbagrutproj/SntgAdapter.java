@@ -28,7 +28,7 @@ public class SntgAdapter extends ArrayAdapter<SentenceGroup> {
 
 
         LayoutInflater layoutInflater = ((Activity)context).getLayoutInflater();
-        View view = layoutInflater.inflate(R.layout.sntg_layout,parent,false);
+        View view = layoutInflater.inflate(R.layout.new_sntg_layout,parent,false);
 
         TextView sntgTv = (TextView)view.findViewById(R.id.nameTv);
 

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -73,6 +74,12 @@ Button btnOk,btnCancel,btnDelete;
             finish();
         }
         if (btnOk == view){
+            String newWord = etNewWord.getText().toString();
+            if (newWord.charAt(newWord.length() - 1) == ' '){
+                etNewWord.setText(newWord.substring(0, newWord.length() - 1));
+                Log.d("New Sentence Creation", "deleted space in the end of the word");
+            }
+
             if (etSentence.getText().toString().length() > 0 && etNewWord.getText().toString().length()>0 &&
                     etSentence.getText().toString().contains(etNewWord.getText().toString()) &&
                     !etSentence.getText().toString().contains("#") && !etSentence.getText().toString().contains("&&") && !etSentence.getText().toString().contains("\n") &&

@@ -42,6 +42,8 @@ Button btnPLusSenGroup, btnAbout;
         lv=(ListView)findViewById(R.id.listview);
         lv.setAdapter(sntgAdapter);
 
+        lv.setDivider(null);
+
         btnPLusSenGroup = findViewById(R.id.btnPlusSenGroup);
         btnPLusSenGroup.setOnClickListener(this);
 
